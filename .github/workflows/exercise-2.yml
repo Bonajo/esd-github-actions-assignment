@@ -14,4 +14,4 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v3
       - name: Run
-        run: python3 main.py
+        run: python3 assignments/exercise-2/main.py
