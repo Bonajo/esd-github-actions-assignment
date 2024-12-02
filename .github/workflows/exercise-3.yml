@@ -1,0 +1,29 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    branches:
+      - dev
+
+defaults:
+  run:
+    working-directory: assignments/exercise-3
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+      - name: Run
+        run: ./gradlew build
+      - uses: actions/upload-artifact@v4
+        with:
+          path: build
